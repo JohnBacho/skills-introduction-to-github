@@ -1,0 +1,399 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lato', sans-serif; /* Body font */
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333333;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif; /* Headings font */
+}
+
+header {
+    background: #FFBF00; /* amber yellow */
+    color: #ffffff; /* white text */
+    padding: 20px 0;
+    text-align: center; /* Centering the content */
+    position: relative; /* Allowing absolute positioning for the search icon */
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    background-color: #ffffff; /* white background for sections */
+    border-radius: 10px; /* rounds corners */
+    padding: 20px; /* padding inside the section */
+    margin: 20px 0; /* margin for spacing between sections */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* adds soft shadow */
+}
+
+#mySidebar {
+  height: 100%;
+  width: 250px; /* Set the width of the sidebar */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  top: 0; /* Stay at the top */
+  left: -250px; /* Hide the sidebar off-screen */
+  background-color: #111; /* Sidebar background color */
+  color: white; /* Text color */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* Transition effect */
+  padding-top: 60px; /* Space at the top */
+}
+
+#mySidebar a {
+  padding: 8px 8px 8px 32px; /* Space for links */
+  text-decoration: none; /* Remove underline */
+  font-size: 25px; /* Font size */
+  color: white; /* Text color */
+  display: block; /* Block level */
+  transition: 0.5s; /* Transition for hover effect */
+}
+
+#mySidebar a:hover {
+  color: #939393; /* Change color on hover */
+}
+
+.openbtn {
+  cursor: pointer; /* Change cursor */
+}
+/* added padding for the header elements */
+#side_bar_header{
+padding: 20px;
+font-size: 3rem;
+}
+
+h2 {
+    text-align: left;
+    font-size: 3.2vw; /* reduces text size based on viewport size */
+    margin-bottom: 13px;
+}
+
+.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* space between cards */
+}
+
+.game-card {
+    background: #ffffff; /* white card background */
+    border-radius: 10px; /* rounds corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    width: calc(23% - 20px); /* 4 cards per row */
+    margin-bottom: 20px;
+    text-decoration: none; /* removes underline from link */
+    overflow: hidden; /* ensures the corners are rounded properly */
+    opacity: 0; /* starts invisible */
+    transform: translateY(20px); /* starts with a slight slide up */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, filter 0.3s ease, background-color 0.3s ease;
+  }
+
+.game-card.fade-in {
+    opacity: 1; /* Fade in effect */
+    transform: translateY(0); /* Move to original position */
+}
+
+.game-card:hover {
+  background-color: #b0b0b0; /* light gray background on hover */
+  transform: translateY(-10px) scale(1.028); /* slight lift effect on hover */
+  filter: brightness(1.05); /* slight brightness increase */
+}
+
+.game-card a {
+    display: flex; 
+    flex-direction: column; /* Stack children vertically */
+    width: 100%; /* Make the anchor take the full width */
+    color: inherit; /* Inherit color for text */
+    text-decoration: none; /* Removes underline from the link */
+}
+
+.game-card img {
+    width: 100%; /* Make image take full width of the card */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.game-info {
+    padding: 10px;
+    flex-grow: 0; /* Prevent stretching */
+}
+
+.game-card h3 {
+    margin: 10px 0;
+    color: #333333; /* Dark gray title text */
+    text-align: center; /* Center title text */
+    font-size: 2.2vw;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #333333; /* Dark gray footer */
+    color: #ffffff; /* White text */
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+}
+
+section.dark-mode {
+    background-color: #2c2c2c; /* Dark background for sections */
+}
+
+footer.dark-mode {
+    background: #000000; /* Dark footer background */
+}
+
+.game-card.dark-mode {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+
+body, section, footer {
+    transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+#toggle-theme {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for the button */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s; /* Smooth transitions */
+    margin-bottom: 10px;
+}
+
+/* Button hover effect */
+#toggle-theme:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+iframe {
+    display: block;
+    margin: 0 auto;
+}
+
+#search-icon {
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute; /* Position search icon absolutely */
+    right: 20px; /* Move to the far right */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for perfect vertical centering */
+}
+
+#menu-icon {
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute; /* Position search icon absolutely */
+  left: 20px; /* Move to the far right */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for perfect vertical centering */
+}
+
+  /* Hide the search bar initially */
+  #game-search {
+    display: none;
+    position: absolute;
+    top: calc(60% + 20px); /* Places it just below the search icon */
+    right: 20px;
+    width: 200px;
+    padding: 5px;
+    border: 4px solid #ddd;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+  /* Style for the search input when visible */
+  .visible {
+    display: inline-block;
+  }
+
+  @media screen and (max-width: 600px) {
+    #search-icon {
+        display: none;
+    }
+    #menu-icon{
+      display: none;
+    }
+
+    #game-search {
+        display: block; /* Ensure it's displayed */
+        margin: 10px auto; /* Center horizontally */
+        width: 80%; /* Adjust width as needed */
+        padding: 10px; /* Add padding for better appearance */
+    }
+
+    #toggle-theme {
+        margin-bottom: 20px; /* Adds space below the button */
+    }
+}
+.podium-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 20px 0;
+  }
+  
+  .podium-item {
+    opacity: 0;
+    text-align: center;
+    margin: 0 10px;
+    padding: 20px;
+    color: black; 
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    cursor: pointer;
+    border-radius: 10px; /* Rounds corners */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .podium-item.fade-in {
+    opacity: 0.85; /* 0.85 visible */
+    transform: translateY(0); 
+}
+  
+  .podium-item .podium-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    transition: transform 0.5s ease;
+  }
+
+  .podium-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2); /* Adds a highlight effect */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.podium-item:hover::before {
+    opacity: 1; /* Highlight appears on hover */
+}
+  
+.podium-item.gold {
+  background: linear-gradient(145deg, #FFEA00, #FFD500); /* Gold gradient */
+  width: 18vw;
+  height: 450px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6); /* Glowing shadow for gold */
+}
+
+.podium-item.silver {
+  background: linear-gradient(145deg, #C0C0C0, #A9A9A9); /* Silver gradient */
+  width: 15vw;
+  height: 400px;
+  box-shadow: 0 8px 20px rgba(192, 192, 192, 0.6); /* Glowing shadow for silver */
+}
+
+.podium-item.bronze {
+  background: linear-gradient(145deg, #CD7F32, #A97142); /* Bronze gradient */
+  width: 13vw;
+  height: 350px;
+  box-shadow: 0 8px 20px rgba(205, 127, 50, 0.6); /* Glowing shadow for bronze */
+}
+  
+  .podium-rank {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); /* Shadow for better readability */
+  }
+  
+  .podium-info h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    word-break: break-word;
+}
+
+.podium-info p {
+    font-size: 16px;
+    color: black;
+    line-height: 1.4;
+    font-style: italic;
+    word-break: break-word;
+}
+
+.podium-item:hover {
+    transform: translateY(-10px); 
+    opacity: 1;
+  }
+  
+  .podium-item:hover .podium-img {
+    transform: scale(1.1);
+  }
+
+  @media screen and (max-width: 1000px) {
+    .podium-item .podium-img {
+        width: 70px;
+        height: 70px;
+      }
+  }
+
+  @media screen and (max-width: 700px) {
+    .podium-item .podium-img {
+        width: 30px;
+        height: 30px;
+      }
+      .podium-info h3 {
+        font-size: 10px;
+      }
+      
+      .podium-info p {
+        font-size: 6px;
+      }
+      .podium-item.gold {
+        width: 17vw;
+        height: 250px;
+      }
+      
+      .podium-item.silver {
+        width: 15vw;
+        height: 200px;
+      }
+      
+      .podium-item.bronze {
+        width: 15vw;
+        height: 170px;
+      }
+      .podium-rank {
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+  }
